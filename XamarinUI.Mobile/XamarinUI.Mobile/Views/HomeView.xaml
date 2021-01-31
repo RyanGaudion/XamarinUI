@@ -20,33 +20,26 @@
                     <Label TextColor="{StaticResource DarkBlueText}"  FontFamily="FASolid" FontSize="28" Text="&#xf0c9;" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                 </StackLayout>
                 <!--Horizontal Scroll-->
-                <CollectionView Margin="0,20,0,0" HeightRequest="250">
+                <CollectionView Margin="0,20,0,0" HeightRequest="250" ItemsSource="{Binding DiscoverHeadings}">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0"/>
                     </CollectionView.ItemsLayout>
-                    <CollectionView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Hello</x:String>
-                            <x:String>Hello2</x:String>
-                            <x:String>Hello</x:String>
-                        </x:Array>
-                    </CollectionView.ItemsSource>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Padding="25,0,15,0">
                                 <pancake:PancakeView WidthRequest="200" CornerRadius="25" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Grid>
-                                        <Image Source="https://www.musicweek.com/cimages/6f29a0176e1bc5ca28aa893dd1c1987e.jpg" Scale="1.1"
+                                        <Image Source="{Binding ImageURL}" Scale="{Binding Scale}"
                                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
                                         <pancake:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundGradientStartPoint="1,1" BackgroundGradientEndPoint="1,0" Opacity="0.4">
                                             <pancake:PancakeView.BackgroundGradientStops>
                                                 <pancake:GradientStopCollection>
-                                                    <pancake:GradientStop Color="#000" Offset="0" />
-                                                    <pancake:GradientStop Color="#104756" Offset="0.4" />
+                                                    <pancake:GradientStop Color="{Binding StartColor}" Offset="0" />
+                                                    <pancake:GradientStop Color="{Binding EndColor}" Offset="0.4" />
                                                 </pancake:GradientStopCollection>
                                             </pancake:PancakeView.BackgroundGradientStops>
                                         </pancake:PancakeView>
-                                        <Label TextColor="White" Opacity="0.8" Text="DAILY MIX" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20" FontSize="22" VerticalOptions="EndAndExpand" FontFamily="Roboto" CharacterSpacing="1"/>
+                                        <Label TextColor="White" Opacity="0.8" Text="{Binding Text}}" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20" FontSize="22" VerticalOptions="EndAndExpand" FontFamily="Roboto" CharacterSpacing="1"/>
                                     </Grid>
                                 </pancake:PancakeView>
                             </StackLayout>
@@ -54,12 +47,38 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <!--Headings Section-->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <StackLayout>
-                        <Label TextColor="{StaticResource DarkBlueText}" Text="New Releases"/>
-                        <pancake:PancakeView CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5" Margin=""/>
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="25,30,0,0">
+                        <StackLayout x:Name="Headings1" Padding="0,0,25,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Headings1_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{StaticResource DarkBlueText}" FontFamily="RobotoBold" Text="New Releases"/>
+                            <pancake:PancakeView x:Name="HeadingsUnderline1" CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5" Margin="20,0,20,0"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Headings2" Padding="0,0,25,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Headings2_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{StaticResource DarkBlueText}" FontFamily="RobotoBold" Text="Songs"/>
+                            <pancake:PancakeView x:Name="HeadingsUnderline2" CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5"  Margin="10,0,10,0" IsVisible="false"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Headings3" Padding="0,0,25,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Headings3_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{StaticResource DarkBlueText}" FontFamily="RobotoBold" Text="Albulms"/>
+                            <pancake:PancakeView x:Name="HeadingsUnderline3" CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5"  Margin="10,0,10,0" IsVisible="false"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Headings4" Padding="0,0,25,0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Headings4_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label TextColor="{StaticResource DarkBlueText}" FontFamily="RobotoBold" Text="Playlists"/>
+                            <pancake:PancakeView x:Name="HeadingsUnderline4" CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5"  Margin="10,0,10,0" IsVisible="false"/>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
+                </ScrollView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
