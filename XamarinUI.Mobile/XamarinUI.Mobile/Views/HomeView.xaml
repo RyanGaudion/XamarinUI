@@ -4,6 +4,7 @@
                           x:Class="XamarinUI.Mobile.Views.HomeView"
                           xmlns:baseview="clr-namespace:XamarinUI.Mobile.Views.Base"
                           xmlns:baseviewmodel="clr-namespace:XamarinUI.Mobile.ViewModels.Base"
+                          xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                           baseviewmodel:ViewModelLocator.AutoWireViewModel="True"
                           NavigationPage.HasNavigationBar="False"
                           Background="white">
@@ -11,13 +12,55 @@
         <Color x:Key="DarkBlueText">#1c1a1a</Color>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <!--Header-->
-            <StackLayout Orientation="Horizontal" Padding="25,35,25,0">
-                <Label TextColor="{StaticResource DarkBlueText}" CharacterSpacing="3" FontSize="30" FontFamily="Roboto-Black" Text="DISCOVER" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label TextColor="{StaticResource DarkBlueText}"  FontFamily="FASolid" FontSize="28" Text="&#xf0c9;" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <!--Header-->
+                <StackLayout Orientation="Horizontal" Padding="25,35,25,0">
+                    <Label TextColor="{StaticResource DarkBlueText}" CharacterSpacing="3" FontSize="30" FontFamily="Roboto-Black" Text="DISCOVER" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <Label TextColor="{StaticResource DarkBlueText}"  FontFamily="FASolid" FontSize="28" Text="&#xf0c9;" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <!--Horizontal Scroll-->
+                <CollectionView Margin="0,20,0,0" HeightRequest="250">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Hello</x:String>
+                            <x:String>Hello2</x:String>
+                            <x:String>Hello</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="25,0,15,0">
+                                <pancake:PancakeView WidthRequest="200" CornerRadius="25" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                    <Grid>
+                                        <Image Source="https://www.musicweek.com/cimages/6f29a0176e1bc5ca28aa893dd1c1987e.jpg" Scale="1.1"
+                                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+                                        <pancake:PancakeView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundGradientStartPoint="1,1" BackgroundGradientEndPoint="1,0" Opacity="0.4">
+                                            <pancake:PancakeView.BackgroundGradientStops>
+                                                <pancake:GradientStopCollection>
+                                                    <pancake:GradientStop Color="#000" Offset="0" />
+                                                    <pancake:GradientStop Color="#104756" Offset="0.4" />
+                                                </pancake:GradientStopCollection>
+                                            </pancake:PancakeView.BackgroundGradientStops>
+                                        </pancake:PancakeView>
+                                        <Label TextColor="White" Opacity="0.8" Text="DAILY MIX" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20" FontSize="22" VerticalOptions="EndAndExpand" FontFamily="Roboto" CharacterSpacing="1"/>
+                                    </Grid>
+                                </pancake:PancakeView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!--Headings Section-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Label TextColor="{StaticResource DarkBlueText}" Text="New Releases"/>
+                        <pancake:PancakeView CornerRadius="2.5" BackgroundColor="#5dbaf8" HeightRequest="5" Margin=""/>
+                    </StackLayout>
+                </StackLayout>
             </StackLayout>
-            <!--Horizontal Scroll-->
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </baseview:BaseContentPage>
