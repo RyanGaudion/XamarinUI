@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<baseview:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          x:Class="XamarinUI.Mobile.Views.HomeView"
+                          xmlns:baseview="clr-namespace:XamarinUI.Mobile.Views.Base"
+                          xmlns:baseviewmodel="clr-namespace:XamarinUI.Mobile.ViewModels.Base"
+                          baseviewmodel:ViewModelLocator.AutoWireViewModel="True"
+                          NavigationPage.HasNavigationBar="False"
+                          Background="white">
+    <ContentPage.Resources>
+        <Color x:Key="DarkBlueText">#1c1a1a</Color>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <!--Header-->
+            <StackLayout Orientation="Horizontal" Padding="25,35,25,0">
+                <Label TextColor="{StaticResource DarkBlueText}" CharacterSpacing="3" FontSize="30" FontFamily="Roboto-Black" Text="DISCOVER" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Label TextColor="{StaticResource DarkBlueText}"  FontFamily="FASolid" FontSize="28" Text="&#xf0c9;" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <!--Horizontal Scroll-->
+        </StackLayout>
+    </ContentPage.Content>
+</baseview:BaseContentPage>
