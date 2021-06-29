@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using XamarinUI.Shared.Models.Person;
 
 namespace XamarinUI.Mobile.Services.User
 {

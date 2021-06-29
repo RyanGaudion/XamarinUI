@@ -8,6 +8,8 @@ using System.Globalization;
 using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
+using XamarinUI.Shared.DataAccess.Interfaces;
+using XamarinUI.Shared.DataAccess.Repositories.Mock;
 
 namespace XamarinUI.Mobile.ViewModels.Base
 {
@@ -30,6 +32,9 @@ namespace XamarinUI.Mobile.ViewModels.Base
         {
             _contianer = new Container(builder =>
             {
+                //Repositories
+                builder.Register<IDiscoveryRepository, DiscoveryRepository>();
+
                 //ViewModels
                 builder.Register<HomeViewModel>();
 
