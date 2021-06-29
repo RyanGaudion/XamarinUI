@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace XamarinUI.Mobile.Models
+namespace XamarinUI.Shared.Models.Music
 {
     public class DiscoverHeading
     {

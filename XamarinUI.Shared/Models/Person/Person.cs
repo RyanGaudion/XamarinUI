@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace XamarinUI.Shared.Models
+namespace XamarinUI.Shared.Models.Person
 {
     public class Person : ObservableObject
     {
